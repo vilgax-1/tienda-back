@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.routerSales = void 0;
+const compras_1 = require("../controllers/compras");
+const express_1 = require("express");
+const authenticated_1 = require("../middlewares/authenticated");
+exports.routerSales = express_1.Router();
+exports.routerSales.put('/purchaseproduct', authenticated_1.ensureAuth, compras_1.buyProducts);
+exports.routerSales.post('/purchased', authenticated_1.ensureAuth, compras_1.purchasedProductsAll);
+exports.routerSales.post('/buy', authenticated_1.ensureAuth, compras_1.shoppingCar);
